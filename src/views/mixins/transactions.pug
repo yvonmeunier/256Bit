@@ -1,0 +1,6 @@
+mixin btctx(tx)
+    .p-1.text-truncate
+        a(href=`https://blockstream.info/testnet/tx/${tx.hash}`)=tx.received
+mixin ethtx(tx)
+    .p-1.text-truncate
+        a(href=`https://sepolia.etherscan.io/tx/${tx.hash}`)=tx.hash

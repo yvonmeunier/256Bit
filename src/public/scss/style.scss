@@ -1,0 +1,81 @@
+@import "fonts.scss";
+@import "colors.scss";
+@import "borders.scss";
+//mixins
+
+//BT Override
+
+.shadow {
+  @include pixel_border();
+  background-color: $lightest-color;
+}
+.dropdown-menu {
+  border: none;
+}
+.light-text {
+  color: $lightest-color;
+}
+.dark-text {
+  color: $darkest-color;
+}
+//my style
+* {
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  background-color: $dark-color;
+}
+
+.b-dark {
+  background-color: $darkest-color;
+  color: $lightest-color;
+}
+
+#wrapper{
+  position: relative;
+}
+
+.content{
+  position: relative;
+  z-index: 100;
+}
+
+.background{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -100;
+}
+
+.logo {
+  padding-left: 2rem;
+}
+
+.form-control {
+  @include pixel_border;
+  background-color: $lightest-color;
+}
+.pixel-border-text {
+  @include pixel_border();
+  background-color: $lightest-color;
+}
+
+.pixel-border {
+  @include pixel_border();
+}
+
+.form-label {
+  margin-bottom: 1rem;
+}
+
+.particles-js-canvas-el
+{
+  height: 100vh !important;
+}
+//img
+img {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}

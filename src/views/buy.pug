@@ -1,0 +1,40 @@
+extends layout
+block content
+    // this is used for client side calculation
+    p#btcPrice(hidden)=btcValue
+    p#ethPrice(hidden)=ethValue
+    main.d-flex.flex-row.mh-100
+        +navbar()
+        .flex-column.min-vh-100.w-100
+            nav.navbar.b-dark.flex-row
+                span.navbar-brand.mb-2.mt-2.h1.logo Buy Coins
+            .d-flex.pt-3.ps-3.mh-100
+                .row.d-flex.justify-content-center.align-items-center.h-100.w-100
+                    .col.col-xl-10
+                        .pixel-border-text
+                            .row.g-0.justify-content-center
+                                .col-md-8.col-lg-7.d-flex
+                                    .card-body.p-4.p-lg-5.text-black
+                                        form(action="/buy/coins" method="post")
+                                            +flash(error, success)
+                                            .form-outline.mb-4
+                                                +input("Amount")(type="text", placeholder="420,69", name="amount", id="amount")
+                                            .form-outline.mb-4
+                                                .form-check
+                                                    input#btc.form-check-input(type='radio' name='currency' value="btc" checked="")
+                                                    label.form-check-label(for='btc')
+                                                        | BTC ( #{btcValue}$ / BTC )
+                                                .form-check
+                                                    input#eth.form-check-input(type='radio' name='currency' value="eth")
+                                                    label.form-check-label(for='eth')
+                                                        | ETH ( #{ethValue}$ / ETH )
+                                            p#price PRICE : 0,10$
+                                            .pt-1.mb-4
+                                                button.btn.b-dark.btn-lg.btn-block(type='submit') Buy
+                                            p.mb-5.pb-lg-2
+                                                p(style='color: var(--darkest-color);') *This will use your fiat balance
+
+    script(src='./js/jquery.min.js')
+    script(src='./js/popper.min.js')
+    script(src='./js/bootstrap.min.js')
+    script(src="/javascripts/calculatetotal.js")

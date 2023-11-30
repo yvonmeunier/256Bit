@@ -1,0 +1,67 @@
+extends layout
+block content
+    main.d-flex.flex-row.mh-100
+        +navbar()
+        .flex-column.min-vh-100.w-100
+            nav.navbar.b-dark.flex-row
+                span.navbar-brand.mb-2.mt-2.h1.logo Profile
+            .d-flex.pt-3.ps-3.mh-100
+                .row.d-flex.justify-content-center.align-items-center.h-100.w-100
+                    .col.col-xl-10
+                        .pixel-border-text
+                            .row.g-0.justify-content-center
+                                .col-md-8.col-lg-7.d-flex
+                                    .card-body.p-4.p-lg-5.text-black
+                                        if (url != null && url !== "no")
+                                            #exampleModal.modal.fade(tabindex='-1' aria-labelledby='exampleModalLabel' aria-hidden='true')
+                                                .modal-dialog
+                                                    .modal-content.pixel-border-text
+                                                        .modal-header
+                                                            h5#exampleModalLabel.modal-title Qr Code
+                                                            button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+                                                        .modal-body
+                                                            img(src=url)
+                                                            hr
+                                                            p WARNING : this is the only time we show you that QR code
+                                                        .modal-footer
+                                                            button.btn.b-dark.btn-lg.btn-block(type='button' data-bs-dismiss='modal') I scanned the QR Code
+
+                                        form(action="/profile" method="post")
+                                            +flash(error, success)
+                                            .form-outline.mb-4
+                                                +input("Username")(type="text", value=username, name="username")
+                                            .form-outline.mb-2
+                                                h5 Password Change
+                                            hr
+                                            .form-outline.mb-4
+                                                +input("Old Password")(type="text", name="oldPassword")
+                                            .form-outline.mb-4
+                                                +input("New Password", tip="must be at least 12 character long")(type="text", name="password")
+                                            .form-outline.mb-4
+                                                +input("Confirm New Password")(type="text", name="confirmPassword")
+                                            .form-outline.mb-2
+                                                h5 MFA Settings
+                                            hr
+                                            .form-outline.mb-4
+                                                input#isEmail2FA.form-check-input(type='checkbox' name='isEmail2FA' checked=isEmail2FA)
+                                                label.form-check-label.ps-2(for='isEmail2FA')
+                                                    | Email 2FA
+                                            .form-outline.mb-4
+                                                input#isSMS2FA.form-check-input(type='checkbox' name='isSMS2FA' checked=isSMS2FA)
+                                                label.form-check-label.ps-2(for='isSMS2FA')
+                                                    | SMS 2FA
+                                            .form-outline.mb-4
+                                                input#isGoogle2FA.form-check-input(type='checkbox' name='isGoogle2FA' checked=isGoogle2FA)
+                                                label.form-check-label.ps-2(for='isGoogle2FA')
+                                                    | Google 2FA
+                                            .pt-1.mb-4
+                                                button.btn.b-dark.btn-lg.btn-block(type='submit') Change Profile
+
+    script(src='/js/jquery.min.js')
+    script(src='/js/popper.min.js')
+    script(src='/js/bootstrap.min.js')
+    script(src='/javascripts/tooltips.js')
+    script(type='text/javascript').
+        $(window).on('load', function () {
+            $('#exampleModal').modal('show');
+        });

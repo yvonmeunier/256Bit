@@ -1,0 +1,53 @@
+extends layout
+block content
+    nav.navbar.b-dark
+        span.navbar-brand.mb-0.h1.logo 256Bit
+    #wrapper
+        .content
+            section.vh-100
+                .container.py-5.h-100
+                    .row.d-flex.justify-content-center.align-items-center.h-100
+                        .col.col-xl-10
+                            .pixel-border-text
+                                .row.g-0.justify-content-center
+                                    .col-md-8.col-lg-7.d-flex
+                                        .card-body.p-4.p-lg-5.text-black
+                                            //idk if this is how I am supposed to do this lol
+                                            if (isTX)
+                                                form(action="/mfa/tx" method="post")
+                                                    .d-flex.align-items-center.mb-3.pb-1
+                                                        span.h1.fw-bold.mb-0 256Bit
+                                                    h5.fw-normal.mb-3.pb-3(style='letter-spacing: 1px;') MFA for Transaction
+                                                    case type
+                                                        when "google"
+                                                            p Google Authenticator
+                                                        when "sms"
+                                                            p We sent you an SMS with a code
+                                                        when "email"
+                                                            p We sent you an email with a code
+                                                    .form-outline.mb-4
+                                                        +input("Code")(type="text", placeholder="", name="code")
+                                                        button.btn.b-dark.btn-lg.btn-block(type='submit') Submit
+                                            else
+                                                form(action="/mfa" method="post")
+                                                    .d-flex.align-items-center.mb-3.pb-1
+                                                        span.h1.fw-bold.mb-0 256Bit
+                                                    h5.fw-normal.mb-3.pb-3(style='letter-spacing: 1px;') MFA
+                                                    case type
+                                                        when "google"
+                                                            p Google Authenticator
+                                                        when "sms"
+                                                            p We sent you an SMS with a code
+                                                        when "email"
+                                                            p We sent you an email with a code
+                                                    .form-outline.mb-4
+                                                        +input("Code")(type="text", placeholder="", name="code")
+                                                        button.btn.b-dark.btn-lg.btn-block(type='submit') Submit
+
+
+        .background
+            div(id='particles-js')
+
+
+    script(src='./js/particles.js')
+    script(src='javascripts/particle_test.js')

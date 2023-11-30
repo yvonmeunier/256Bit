@@ -1,0 +1,84 @@
+mixin form(method, action)
+    -httpMethod = method;
+    -notStandard = method !== 'get' && method !== 'post';
+    if notStandard
+        -httpMethod = 'post';
+    form.form-horizontal(method=httpMethod, action=action)&attributes(attributes)
+        if notStandard
+            input(type="hidden", name="__method", value=method)
+        block
+
+mixin navbar
+    .d-flex.flex-column.flex-shrink-0.pt-3.b-dark.min-vh-100.h-100
+        p.d-flex.align-items-center.mb-3.mb-md-0.me-md-auto.text-decoration-none
+            svg.bi.me-2(width='40' height='32')
+                use(xlink:href='#bootstrap')
+            span.fs-4.navbar-brand 256Bit
+        hr
+        ul.nav.nav-pills.flex-column.mb-auto
+            li.nav-item
+                a.nav-link.light-text(href='/home' aria-current='page')
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/home')
+                    |           Home
+            li.nav-item
+                a.nav-link.light-text(href='/buy/fiat' aria-current='page')
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/buy/fiat')
+                    |           Buy Fiat
+            li.nav-item
+                a.nav-link.light-text(href='/buy/coins' aria-current='page')
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/buy')
+                    |           Buy Coins
+            li.nav-item
+                a.nav-link.light-text(href='/trade' aria-current='page')
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/trade')
+                    |           Trade
+            li.nav-item
+                a.nav-link.light-text(href='/sell' aria-current='page')
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/sell')
+                    |           Sell
+            li.nav-item
+                a.nav-link.light-text(href='/wallet' aria-current='page')
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/wallet')
+                    |           Wallet
+        p.d-flex.align-items-center.mb-3.mb-md-0.me-md-auto.text-decoration-none
+            svg.bi.me-2(width='40' height='32')
+                use(xlink:href='#bootstrap')
+            span.fs-4.navbar-brand Currencies
+        hr
+        ul.nav.nav-pills.flex-column.mb-auto
+            li.nav-item
+                p.light-text
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/home')
+                    |            BTC :
+                    =balanceBTC
+            li.nav-item
+                p.light-text
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/home')
+                    |            ETH :
+                    =balanceETH
+            li.nav-item
+                p.light-text
+                    svg.bi.me-2(width='16' height='16')
+                        use(xlink:href='/home')
+                    |            USD :#{balanceFiat}$
+
+        hr
+        .dropdown
+            a#dropdownUser1.d-flex.align-items-center.text-decoration-none.dropdown-toggle.light-text(href='#' data-bs-toggle='dropdown' aria-expanded='false')
+                img.rounded-circle.me-2(src='https://github.com/mdo.png' alt='' width='32' height='32')
+                strong=username
+            ul.dropdown-menu.text-small.shadow(aria-labelledby='dropdownUser1')
+                li
+                    a.dropdown-item(href='/profile') Profile
+                li
+                    hr.dropdown-divider
+                li
+                    a.dropdown-item(href='/logout') Sign out

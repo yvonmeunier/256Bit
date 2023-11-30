@@ -1,0 +1,6 @@
+@import "colors.scss";
+@mixin pixel_border()
+{
+    box-shadow: 4px 0 $lightest-color, -4px 0 $lightest-color, 0 -4px $lightest-color, 0 4px $lightest-color, 8px 0 $darkest-color, -8px 0 $darkest-color, 0 -8px $darkest-color, 0 8px $darkest-color, 0 0 0 4px $darkest-color!important;
+    border-radius: 0;
+}

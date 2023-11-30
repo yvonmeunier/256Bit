@@ -1,0 +1,6 @@
+mixin cryptocard(privateKey,publicKey,text, privateTargetName, publicTargetName)
+    .pixel-border-text.p-5.text-truncate.mb-4
+        p(value=privateKey id=privateTargetName)=text
+        p(value=publicKey id=publicTargetName)=publicKey
+        button(onclick='CopyToClip("' + publicTargetName + '")' target=publicTargetName).btn.b-dark.btn-lg.btn-block.me-2 Copy Public Key
+        button(onclick='CopyToClip("' + privateTargetName + '")' target=privateTargetName).btn.b-dark.btn-lg.btn-block Copy Private Key

@@ -1,0 +1,15 @@
+extends layout
+block content
+    main.d-flex.flex-row.mh-100
+        +navbar()
+        .flex-column.min-vh-100.w-100
+            nav.navbar.b-dark.flex-row
+                span.navbar-brand.mb-2.mt-2.h1.logo Wallet
+            .d-flex.pt-3.ps-3.mh-100
+                .flex-column
+                    +cryptocard(btcPrivateKey, btcPublicKey, "BTC Key", "btcPrivateKey", "btcPublicKey")
+                    +cryptocard(ethPrivateKey,ethPublicKey, "ETH Key", "ethPrivateKey", "ethPublicKey")
+    script(src='./js/jquery.min.js')
+    script(src='./js/popper.min.js')
+    script(src='./js/bootstrap.min.js')
+    script(src='javascripts/copytoclip.js')

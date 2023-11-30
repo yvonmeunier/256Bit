@@ -1,0 +1,14 @@
+mixin input(label, tip ,fieldName, defaultValue)
+    -inputType = (attributes.type !== undefined) ? attributes.type : "text"
+    -inputIdentifyer = (attributes.name !== undefined) ? attributes.name : "input-" + time() + rand(10000, 99999)
+    .mb-3
+        label.form-label(for=inputIdentifyer)=label
+        if tip
+            strong.dark-text(data-bs-toggle='tooltip' data-bs-placement="top" data-bs-title=tip) (?)
+        input.form-control.form-control-lg(type=inputType name=fieldName, value=defaultValue , id=inputIdentifyer)&attributes(attributes)
+        block
+mixin flash(error, success)
+    if error != "" && error != null
+        .alert.alert-danger!=error
+    if success != "" && success != null
+        .alert.alert-success!=success

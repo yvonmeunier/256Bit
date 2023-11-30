@@ -1,0 +1,11 @@
+$darkest-color: #081820;
+$dark-color: #346856;
+$light-color: #88c070;
+$lightest-color: #e0f8d0;
+//BS Overrides
+$bs-body-bg: $lightest-color;
+$navbar-light-active-color: $lightest-color;
+$bs-link-hover-color: $light-color;
+$bs-btn-bg: $darkest-color;
+$btn-color: $lightest-color;
+@import "../../../node_modules/bootstrap/scss/bootstrap";

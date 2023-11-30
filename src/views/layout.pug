@@ -1,0 +1,12 @@
+include mixins/forms
+include mixins/transactions
+include mixins/base
+include mixins/cryptocard
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='./css/bootstrap.css')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    block content

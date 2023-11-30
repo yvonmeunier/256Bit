@@ -1,0 +1,28 @@
+extends layout
+block content
+    main.d-flex.flex-row.mh-100
+        +navbar()
+        .flex-column.min-vh-100.w-100
+            nav.navbar.b-dark.flex-row
+                span.navbar-brand.mb-2.mt-2.h1.logo Buy Fiat
+            .d-flex.pt-3.ps-3.mh-100
+                .row.d-flex.justify-content-center.align-items-center.h-100.w-100
+                    .col.col-xl-10
+                        .pixel-border-text
+                            .row.g-0.justify-content-center
+                                .col-md-8.col-lg-7.d-flex
+                                    .card-body.p-4.p-lg-5.text-black
+                                        form(action="/buy/fiat" method="post")
+                                            +flash(error, success)
+                                            .form-outline.mb-4
+                                                +input("Amount")(type="text", placeholder="420,69", name="amount")
+                                            .form-outline.mb-4
+                                                +input("Credit Card Number")(type="text", placeholder="4242 4242 4242 4242", name="credit")
+                                                .form-outline.mb-4
+                                                    +input("Exp. Date")(type="text", placeholder="12/34", name="date")
+                                                    +input("CVC")(type="text", placeholder="567", name="cvc")
+                                            .pt-1.mb-4
+                                                button.btn.b-dark.btn-lg.btn-block(type='submit') Buy
+    script(src='./js/jquery.min.js')
+    script(src='./js/popper.min.js')
+    script(src='./js/bootstrap.min.js')
