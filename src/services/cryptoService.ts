@@ -13,6 +13,7 @@ const network = "https://sepolia.infura.io/v3/a94bac4045aa4899bd0f1c8411b4a63a";
 const web3 = new Web3(new Web3.providers.HttpProvider(network))
 
 // my stuff so you can buy, could've added that as an env but heh
+// those are test BTC and ETH keys
 const ETHPublicAddress = "";
 const ETHPrivateKey = "";
 const BTCPublicAddress = "";
