@@ -3,7 +3,7 @@ import axios from "axios";
 let mnemonic = require("bitcore-mnemonic");
 const bitcore = require("bitcore-lib");
 const apiNetwork = "https://api.blockcypher.com/v1/btc/test3";
-const blockCypherToken = "49047fc911614bcca9c45a63ed9889ba";
+const blockCypherToken = "";
 
 import {Web3} from 'web3';
 import {Transaction as ETHT} from 'web3'
@@ -13,10 +13,10 @@ const network = "https://sepolia.infura.io/v3/a94bac4045aa4899bd0f1c8411b4a63a";
 const web3 = new Web3(new Web3.providers.HttpProvider(network))
 
 // my stuff so you can buy, could've added that as an env but heh
-const ETHPublicAddress = "0xe3041C08581Fc4F85C149deA23dcB5b60057f5B5";
-const ETHPrivateKey = "f16202d8198e370c069259c674a0a004b8d46e4a2adf9395a44da2024f3feeda";
-const BTCPublicAddress = "midEHcrxHPU2j1YdAA7D5qUqCw2sRXRtHN";
-const BTCPrivateKey = "92T6SwXHYvbUQg1YoGeREaAKXqfHS2JVQ7qXWKHferK8dpMJqos";
+const ETHPublicAddress = "";
+const ETHPrivateKey = "";
+const BTCPublicAddress = "";
+const BTCPrivateKey = "";
 
 
 
