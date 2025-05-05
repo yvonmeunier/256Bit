@@ -38,9 +38,9 @@ app.use(session({
 
 process.env.PEPPER = "d981a1b19fc62ac7927b9bef82e2617a1c186b502ce3b5e6ea4ef76efd9acc90";
 process.env.SERVER_KEY = "7194f4284123596812dfbb40d1a87adcdea3897895d499f12067faa760c7f7fa";
-process.env.SENDGRID = "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";
-process.env.SID = "AC8765eb36ca0f78df9b373d79d3768296";
-process.env.AUTHTOKEN = "34c513e36719332dc8397731f7cc43fe";
+process.env.SENDGRID = "";
+process.env.SID = "";
+process.env.AUTHTOKEN = "";
 
 
 // add front end libraries stuff here
